@@ -1,6 +1,6 @@
 var helicopterIMG, helicopterSprite, packageSprite,packageIMG;
 var packageBody,ground;
-var rect1,rect2,rect3;
+var var rectObject;
 
 const Engine = Matter.Engine;
 const World = Matter.World;
@@ -16,9 +16,7 @@ function preload()
 
 function setup() {
 	createCanvas(800, 700);
-	rectMode(CENTER);
 	
-
 	packageSprite=createSprite(width/2, 80, 10,10);
 	packageSprite.addImage(packageIMG)
 	packageSprite.scale=0.2
@@ -41,10 +39,7 @@ function setup() {
 	//Create a Ground
 	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
 	 World.add(world, ground);
-	 
-	rect1 = new Box(400,650,200,20);
-	rect2 = new Box(310,610,20,100);
-	rect3 = new Box(510,610,20,100);
+	 rectObject = new Box(width-200,height-40,150,20);
 
 
 	Engine.run(engine);
@@ -58,10 +53,7 @@ function draw() {
   packageSprite.x= packageBody.position.x 
   packageSprite.y= packageBody.position.y 
 
-  rect1.display();
-  rect2.display();
-  rect3.display();
-
+  rectObject.display();
   drawSprites();
  
 }
@@ -71,6 +63,7 @@ function keyPressed() {
     Matter.Body.setStatic(packageBody,false);
     
   }
+}
 }
 
 
