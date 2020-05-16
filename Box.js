@@ -17,7 +17,7 @@ class Box{
       var pos =this.body.position;
       rectMode(CENTER);
       fill("red");
-      rect(pos.x, pos.y, this.width, this.height);
+      rect(pos.x, pos.y-20, this.width, this.height);
     }
     
 }
